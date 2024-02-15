@@ -16,10 +16,10 @@ export async function POST(request: Request) {
   
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
-    to: email,
+    to: email.toString(),
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Message from Jervi (${email})`,
-    html: compileTemplate(email, 'https://gacem.netlify.app/', 'https://github.com/Jervi-sir')
+    html: compileTemplate(email.toString(), 'https://gacem.netlify.app/', 'https://github.com/Jervi-sir')
   };
   
   const sendMailPromise = () =>
